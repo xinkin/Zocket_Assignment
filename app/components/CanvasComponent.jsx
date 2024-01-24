@@ -254,21 +254,23 @@ const CanvasComponent = () => {
         <div className="flex flex-col">
           <div className="text-xs">Choose Your Color</div>
           <div className="flex gap-2 items-center">
-            <button
-              className="w-7 h-7 justify-center items-center flex bg-zinc-400 rounded-full"
-              onClick={() => setToggleColorPicker(true)}
-            >
-              +
-            </button>
+            <div className="flex flex-col">
+              <button
+                className="w-7 h-7 justify-center items-center flex bg-zinc-400 rounded-full"
+                onClick={() => setToggleColorPicker(true)}
+              >
+                +
+              </button>
+              <div className="mt-2">
+                <EyeDropperComponent setEyedropperColor={setEyedropperColor} />
+              </div>
+            </div>
             <CirclePicker
               colors={lastSelectedColors}
               onChange={handleColorChange}
               circleSpacing={10}
               circleSize={22}
             />
-          </div>
-          <div className="mt-2">
-            <EyeDropperComponent setEyedropperColor={setEyedropperColor} />
           </div>
         </div>
 
