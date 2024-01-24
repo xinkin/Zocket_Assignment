@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useEffect, useState } from 'react'
 import { SketchPicker, CirclePicker } from 'react-color'
+import EyeDropperComponent from './EyeDropperComponent'
 import template from '../utils/template.json'
 
 class CanvasEditor {
@@ -123,6 +124,7 @@ const CanvasComponent = () => {
   const [imgName, setImgName] = useState('')
   const [bgColor, setBgColor] = useState('#0369A1')
   const [lastSelectedColors, setLastSelectedColors] = useState([])
+  const [eyedropperColor, setEyedropperColor] = useState('')
   const [toggleColorPicker, setToggleColorPicker] = useState(false)
   const [captionText, setCaptionText] = useState(template.caption.text)
   const [CTAText, setCTAText] = useState(template.cta.text)
@@ -217,6 +219,13 @@ const CanvasComponent = () => {
     updateLastSelectedColors(bgColor)
   }
 
+  useEffect(() => {
+    if (eyedropperColor) {
+      setBgColor(eyedropperColor)
+      updateLastSelectedColors(eyedropperColor)
+    }
+  }, [eyedropperColor])
+
   return (
     <div className="flex gap-40 w-3/5 justify-center">
       <canvas
@@ -257,6 +266,9 @@ const CanvasComponent = () => {
               circleSpacing={10}
               circleSize={22}
             />
+          </div>
+          <div className="mt-2">
+            <EyeDropperComponent setEyedropperColor={setEyedropperColor} />
           </div>
         </div>
 
