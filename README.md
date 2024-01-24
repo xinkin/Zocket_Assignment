@@ -1,4 +1,5 @@
 # Canva Editor
 ## First Glance
 
-![Screenshot 2024-01-25 at 2 42 57 AM](https://github.com/xinkin/Zocket_Assignment/assets/91452674/da8ffe08-8915-43d2-8263-1127a7b4093f)
+
+![Screenshot 2024-01-25 at 3 30 32 AM](https://github.com/xinkin/Zocket_Assignment/assets/91452674/7e2af659-0c10-4cce-8969-c9cd3342d947)
