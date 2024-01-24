@@ -254,6 +254,8 @@ const CanvasComponent = () => {
             <CirclePicker
               colors={lastSelectedColors}
               onChange={handleColorChange}
+              circleSpacing={10}
+              circleSize={22}
             />
           </div>
         </div>

@@ -3,7 +3,7 @@ import CanvasComponent from './components/CanvasComponent'
 
 const Home = () => {
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-200">
+    <div className="flex justify-center items-center h-screen bg-gray-300">
       <CanvasComponent />
     </div>
   )
