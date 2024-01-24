@@ -217,37 +217,6 @@ const CanvasComponent = () => {
     updateLastSelectedColors(bgColor)
   }
 
-  // useEffect(() => {
-  //   const handleClickOutside = event => {
-  //     const colorPickerContainer = document.querySelector('.sketch-picker')
-  //     if (
-  //       canvasRef.current &&
-  //       !canvasRef.current.contains(event.target) &&
-  //       !colorPickerContainer?.contains(event.target)
-  //     ) {
-  //       setToggleColorPicker(false)
-  //       if (!isColorPickerOpen) {
-  //         updateLastSelectedColors(bgColor)
-  //       }
-  //     }
-  //   }
-  //   document.addEventListener('mousedown', handleClickOutside)
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClickOutside)
-  //   }
-  // }, [bgColor, isColorPickerOpen])
-
-  const colorCircle = lastSelectedColors.map((color, index) => {
-    return (
-      <div
-        key={index}
-        className="w-8 h-8 rounded-full border border-gray-300"
-        // onClick={() => handleColorChange({ hex: color })}
-        style={{ backgroundColor: color }}
-      ></div>
-    )
-  })
-
   return (
     <div className="flex gap-40 w-3/5 justify-center">
       <canvas
@@ -275,14 +244,17 @@ const CanvasComponent = () => {
 
         <div className="flex flex-col">
           <div className="text-xs">Choose Your Color</div>
-          <div className="flex gap-2">
-            {colorCircle}
+          <div className="flex gap-2 items-center">
             <button
-              className="w-8 h-8 justify-center items-center flex bg-zinc-400 rounded-full"
+              className="w-7 h-7 justify-center items-center flex bg-zinc-400 rounded-full"
               onClick={() => setToggleColorPicker(true)}
             >
               +
             </button>
+            <CirclePicker
+              colors={lastSelectedColors}
+              onChange={handleColorChange}
+            />
           </div>
         </div>
 
